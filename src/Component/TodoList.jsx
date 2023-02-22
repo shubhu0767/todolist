@@ -1,24 +1,12 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react'
+import TodoItem from "./TodoItem";
 
 const TodoList = () => {
-  const [isClicked, setIsCliked] = useState(0);
-
-  console.log(isClicked);
   return (
-    <div>
-      <div className="task">
-        <h2>Write a Letter</h2>
-        <input type="checkbox" onClick={() => setIsCliked(setIsCliked + 1)} />
-        <button>Delete</button>
-      </div>
+    <>
+        <TodoItem taskTest = "Hello" />
+    </>
+  )
+}
 
-      <div className="task-text-heading">
-        <p>T create time</p>
-        <p>T delete time</p>
-      </div>
-    </div>
-  );
-};
-
-export default TodoList;
+export default TodoList

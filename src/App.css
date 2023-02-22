@@ -4,11 +4,23 @@
   box-sizing: border-box;
 }
 
-.task{
+.task-item{
+  background-color: #fefae0;
+  width: 30vw;
+  padding: .5rem 0;
+  margin: auto;
   margin-top: 10rem;
+  border-radius: 7px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.task-text{
   display: flex;
   justify-content: center;
   column-gap: 2rem;
+}
+
+button{
+  padding: 0 1rem;
 }
 
 .task-text-heading{
