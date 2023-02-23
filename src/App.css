@@ -9,7 +9,7 @@
   width: 30vw;
   padding: .5rem 0;
   margin: auto;
-  margin-top: 10rem;
+  margin-top: 1rem;
   border-radius: 7px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -21,6 +21,10 @@
 
 button{
   padding: 0 1rem;
+}
+
+.strike {
+  text-decoration: line-through;
 }
 
 .task-text-heading{
