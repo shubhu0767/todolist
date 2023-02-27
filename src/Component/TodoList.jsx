@@ -22,16 +22,25 @@ const TodoList = () => {
       taskCompletedTime: "",
     },
   ];
+  
+  // console.log(tasks);
+  
+  const taskStateChange=(taskStatus, id)=>{
+    tasks[id].taskStatus = taskStatus ? 1:0;
+    // console.log(tasks);
+  }
 
   return (
     <>
-      {tasks.map((task) => {
+      {tasks.map((task, i) => {
         return (
           <TodoItem
+            id={i}
             taskName={task.taskName}
             taskStatus={task.taskStatus}
             taskCreatedTime = {task.taskCreatedTime}
             taskCompletedTime = {task.taskCompletedTime}
+            taskStateChange = {taskStateChange}
           />
         );
       })} 

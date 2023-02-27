@@ -1,18 +1,35 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const TodoList = ({taskName,taskStatus,taskCreatedTime,taskCompletedTime}) => {
-  const [isClicked, setIsCliked] = useState(false);
-  console.log(isClicked);
+const TodoList = ({
+  id,
+  taskName,
+  taskStatus,
+  taskCreatedTime,
+  taskCompletedTime,
+  taskStateChange,
+}) => {
+  const [isClicked, setIsClicked] = useState(false);
+  // console.log(setIsClicked());
+
+  useEffect(() => {
+    setIsClicked(taskStatus == 1);
+  }, []);
+
+  const taskStatusUpdated = (e) => {
+    let value = e.target.checked;
+    // console.log(value);
+    taskStateChange(!isClicked, id);
+    setIsClicked(!isClicked);
+  };
 
   return (
     <div className="task-item">
       <div className="task-text">
-        <h2 className={isClicked ? "strike":""}>{taskName}</h2>
-        <input type="checkbox" onClick={()=> setIsCliked(!isClicked)} />
+        <h2 className={isClicked ? "strike" : ""}>{taskName}</h2>
+        <input type="checkbox" onChange={taskStatusUpdated} />
         <button>Delete</button>
       </div>
-
       <div className="task-text-heading">
         <p>{taskCreatedTime}</p>
         <p>{taskCompletedTime}</p>
