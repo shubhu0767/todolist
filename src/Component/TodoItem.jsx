@@ -17,12 +17,12 @@ const TodoList = ({
     setIsClicked(taskStatus == 1);
   }, []);
 
-  const taskStatusUpdated = (e) => {
+  function taskStatusUpdated(e) {
     let value = e.target.checked;
     // console.log(value);
     taskStateChange(!isClicked, id);
     setIsClicked(!isClicked);
-  };
+  }
 
   const handleDelete = () =>{
     taskDeleteFunc(id)

@@ -5,7 +5,7 @@ const TodoList = () => {
   const [tasks, setTasks] = useState([
     {
       taskName: "Task 1",
-      taskStatus: 0,
+      taskStatus: 1,
       taskCreatedTime: "",
       taskCompletedTime: "",
       taskBody:"",
@@ -26,17 +26,16 @@ const TodoList = () => {
     },
   ])
   
+  // Task Status Update Function
   const taskStateChange=(taskStatus, id)=>{
     tasks[id].taskStatus = taskStatus ? 1:0;
   }
-    //Task Delete function
-  const taskDelete = (id)=> {  
-    console.log(id);
-    // tasks.splice(id, 1);
-    setTasks(tasks.splice(id, 1));
-    console.log("------",tasks);
+
+  //Task Delete function
+  const taskDelete = (id)=> {
+    tasks.splice(id, 1);
+    setTasks([...tasks]);
   }
-  console.log(tasks);
   
   return (
     <>
