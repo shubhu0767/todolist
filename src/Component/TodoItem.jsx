@@ -8,6 +8,7 @@ const TodoList = ({
   taskCreatedTime,
   taskCompletedTime,
   taskStateChange,
+  taskDeleteFunc,
 }) => {
   const [isClicked, setIsClicked] = useState(false);
   // console.log(setIsClicked());
@@ -23,12 +24,16 @@ const TodoList = ({
     setIsClicked(!isClicked);
   };
 
+  const handleDelete = () =>{
+    taskDeleteFunc(id)
+  }
+
   return (
     <div className="task-item">
       <div className="task-text">
         <h2 className={isClicked ? "strike" : ""}>{taskName}</h2>
         <input type="checkbox" onChange={taskStatusUpdated} />
-        <button>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
       <div className="task-text-heading">
         <p>{taskCreatedTime}</p>

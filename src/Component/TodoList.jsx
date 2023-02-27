@@ -1,35 +1,43 @@
-import React from "react";
+import React,{useState} from "react";
 import TodoItem from "./TodoItem";
 
 const TodoList = () => {
-  const tasks = [
+  const [tasks, setTasks] = useState([
     {
       taskName: "Task 1",
       taskStatus: 0,
       taskCreatedTime: "",
       taskCompletedTime: "",
+      taskBody:"",
     },
     {
       taskName: "Task 2",
       taskStatus: 0,
       taskCreatedTime: "",
       taskCompletedTime: "",
+      taskBody:"",
     },
     {
       taskName: "Task 3",
       taskStatus: 0,
       taskCreatedTime: "",
       taskCompletedTime: "",
+      taskBody:"",
     },
-  ];
-  
-  // console.log(tasks);
+  ])
   
   const taskStateChange=(taskStatus, id)=>{
     tasks[id].taskStatus = taskStatus ? 1:0;
-    // console.log(tasks);
   }
-
+    //Task Delete function
+  const taskDelete = (id)=> {  
+    console.log(id);
+    // tasks.splice(id, 1);
+    setTasks(tasks.splice(id, 1));
+    console.log("------",tasks);
+  }
+  console.log(tasks);
+  
   return (
     <>
       {tasks.map((task, i) => {
@@ -41,6 +49,7 @@ const TodoList = () => {
             taskCreatedTime = {task.taskCreatedTime}
             taskCompletedTime = {task.taskCompletedTime}
             taskStateChange = {taskStateChange}
+            taskDeleteFunc = {taskDelete}
           />
         );
       })} 
