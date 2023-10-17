@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import TodoItemEdit from "./TodoItemEdit";
 
 const TodoList = ({
   id,
@@ -9,6 +10,7 @@ const TodoList = ({
   taskCompletedTime,
   taskStateChange,
   taskDeleteFunc,
+  taskEditBtn,
 }) => {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -24,6 +26,14 @@ const TodoList = ({
   const handleDelete = () => {
     taskDeleteFunc(id);
   };
+  
+  const handleEditBtn = () => {
+    taskEditBtn(id);
+  }
+
+  const handlePrintBtn = (e) => {
+    // cordova.plugins.printer.print(<h1>{e.target.innerHTML}</h1>);
+  };
 
   return (
     <div className="task-item">
@@ -34,6 +44,8 @@ const TodoList = ({
           checked={taskStatus === 1 ? true : false}
           onChange={taskStatusUpdated}
         />
+        <button onClick={handleEditBtn}>Edit</button>
+        <button onClick={handlePrintBtn}>Print</button>
         <button onClick={handleDelete}>Delete</button>
       </div>
       <div className="task-text-heading">
